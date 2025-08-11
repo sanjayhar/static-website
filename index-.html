@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sunny Studio — A Tiny Static Site</title>
+  <style>
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --accent:#ffb86b;
+      --muted:#9aa4b2;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#071126 0%, #071b2a 60%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px;
+    }
+
+    .container{max-width:1040px;margin:0 auto}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff7aa2);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#0b1220;box-shadow:0 6px 18px rgba(0,0,0,0.4)
+    }
+    h1{font-size:20px;margin:0}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-bottom:28px}
+    .hero .card{background:var(--card);padding:26px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    .title{font-size:36px;margin:0 0 8px}
+    .lead{color:var(--muted);margin:0 0 18px}
+    .cta{display:inline-block;padding:12px 18px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#ff7aa2);color:#071126;font-weight:700;text-decoration:none}
+    .stats{display:flex;gap:12px;margin-top:18px}
+    .stat{background:var(--glass);padding:10px 12px;border-radius:10px;color:var(--muted);min-width:70px;text-align:center}
+
+    /* Right card */
+    .mock{
+      height:220px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));display:flex;flex-direction:column;justify-content:center;align-items:center;padding:18px
+    }
+    .mock small{color:var(--muted)}
+
+    /* Features */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+    .feature{background:var(--card);padding:18px;border-radius:12px}
+    .feature h3{margin:0 0 8px;font-size:16px}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+    .tile{height:120px;border-radius:10px;background:linear-gradient(135deg,#123, #245);display:flex;align-items:end;padding:10px;font-weight:700}
+
+    /* Footer / form */
+    footer{display:flex;gap:18px;align-items:flex-start}
+    .card form{display:flex;flex-direction:column;gap:12px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:inherit}
+    button{padding:10px 14px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),#ff7aa2);font-weight:700;color:#071126}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:520px){
+      body{padding:18px}
+      .grid{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      nav{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">SS</div>
+        <div>
+          <h1>Sunny Studio</h1>
+          <div style="font-size:12px;color:var(--muted)">A tiny static demo site</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h2 class="title">Beautiful, tiny, and fast static pages</h2>
+        <p class="lead">A starter static site template built with plain HTML and CSS — perfect for prototypes, portfolios or simple landing pages.</p>
+        <a class="cta" href="#contact">Get in touch</a>
+
+        <div class="stats">
+          <div class="stat"><strong>40ms</strong><div style="font-size:12px">Load</div></div>
+          <div class="stat"><strong>1.2k</strong><div style="font-size:12px">Visitors</div></div>
+          <div class="stat"><strong>100%</strong><div style="font-size:12px">Static</div></div>
+        </div>
+      </div>
+
+      <aside class="mock card">
+        <div style="width:100%;height:14px;background:linear-gradient(90deg,#fff2 0%, #fff0 60%);border-radius:6px;margin-bottom:8px"></div>
+        <div style="width:100%;height:10px;background:linear-gradient(90deg,#fff1 0%, #fff0 60%);border-radius:6px;margin-bottom:8px"></div>
+        <small>Minimal preview</small>
+      </aside>
+    </section>
+
+    <section id="features" class="grid">
+      <div class="feature">
+        <h3>No frameworks</h3>
+        <p>Just plain HTML and CSS so you understand everything that's happening.</p>
+      </div>
+      <div class="feature">
+        <h3>Responsive</h3>
+        <p>Layouts adapt down to small screens with a clean, readable UI.</p>
+      </div>
+      <div class="feature">
+        <h3>Easy to edit</h3>
+        <p>Single-file template — copy, paste, and change text or colours.</p>
+      </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+      <div class="tile" style="background:linear-gradient(135deg,#ff9a7b,#ffb86b);">Sunset</div>
+      <div class="tile" style="background:linear-gradient(135deg,#7be3ff,#6b8cff);">Ocean</div>
+      <div class="tile" style="background:linear-gradient(135deg,#9bffb8,#5bd6a6);">Forest</div>
+      <div class="tile" style="background:linear-gradient(135deg,#ff7aa2,#ffd3a5);">Desert</div>
+    </section>
+
+    <footer>
+      <div class="card" style="flex:1" id="contact">
+        <h3 style="margin-top:0">Contact</h3>
+        <form onsubmit="event.preventDefault(); alert('This is a static demo. Replace with your own action.');">
+          <input type="text" placeholder="Your name" required />
+          <input type="email" placeholder="Email" required />
+          <textarea rows="4" placeholder="Message (optional)"></textarea>
+          <div style="display:flex;gap:12px;align-items:center">
+            <button type="submit">Send</button>
+            <div style="color:var(--muted);font-size:13px">Or email: hello@sunny.example</div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" style="width:260px;padding:18px;align-self:flex-start">
+        <h4 style="margin:0 0 8px">About</h4>
+        <p style="margin:0;color:var(--muted);font-size:14px">Tiny static site template with a modern look. Perfect for demos and landing pages.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
