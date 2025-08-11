@@ -24,6 +24,4 @@ jobs:
           aws s3 sync ./ s3://${{ secrets.AWS_BUCKET_NAME }} \
             --exclude ".git/*" \
             --exclude ".github/*" \
-            --exclude "backend-app/*" \
-            --acl public-read \
             --delete
